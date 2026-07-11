@@ -10,32 +10,8 @@ This compiler processes source code through the classic phases of compilation: l
 
 The following diagram illustrates the flow of code through the different compiler stages:
 
-```mermaid
-flowchart TD
-    subgraph Frontend ["1. Frontend"]
-        Src["📄 Source Code (input.txt)"] 
-        --> Lexer["🔍 Lexical Analyzer (lexer.py)"]
-        Lexer -->|Token Stream| Parser["🌳 Syntax Analyzer (syntax_analyzer.py)"]
-    end
+<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/ec3be5a0-1d14-4314-8923-43cb39ddb48e" />
 
-    subgraph MiddleEnd ["2. Semantic & Analysis"]
-        Parser -->|AST| Sem["🛡️ Semantic Analyzer (semantic_analyzer.py)"]
-        Sem -->|Type Maps & Validated AST| ICG["⚙️ Intermediate Code Gen (intermediate_code_generator.py)"]
-    end
-
-    subgraph Backend ["3. Target Code Generation"]
-        ICG -->|Three-Address Code (TAC)| CodeGen["💻 Target Code Generator (code_generator.py)"]
-        CodeGen -->|x86-64 NASM Assembly| Asm["💾 Target Assembly (output.asm)"]
-    end
-
-    %% Styles
-    classDef stage fill:#1e293b,stroke:#3b82f6,stroke-width:2px,color:#f8fafc;
-    classDef file fill:#0f172a,stroke:#10b981,stroke-width:1px,color:#34d399;
-    class Lexer,Parser,Sem,ICG,CodeGen stage;
-    class Src,Asm file;
-```
-
----
 
 ## ⚡ Features
 
